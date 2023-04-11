@@ -33,7 +33,7 @@ const App = () => {
 
   const handleDelete = (event) => {
     axios
-    .delete('http://localhost:8000/api/plants' + event.target.value)
+    .delete('http://localhost:8000/api/plants/' + event.target.value)
     .then((response) => {
       getPlant()
     })
