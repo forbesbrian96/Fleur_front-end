@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 //only need props as a param if we are passing in props to this component (we are going to here).
 const Add = (props) => {
-  let emptyPlant = { name: '', age: '' }
+  let emptyPlant = { name: '', image: '' }
   const [plant, setPlant] = useState(emptyPlant)
 
   const handleChange = (event) => {
@@ -26,11 +26,11 @@ const Add = (props) => {
         onChange={handleChange}/>
         <br />
         <br />
-        <label htmlFor="family">Family: </label>
+        <label htmlFor="image">Image: </label>
         <input 
         type="text" 
-        name="family" 
-        value={plant.family} 
+        name="image" 
+        value={plant.image} 
         onChange={handleChange}/>
         <input type="submit"/>
       </form>

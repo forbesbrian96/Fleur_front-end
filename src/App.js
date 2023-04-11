@@ -9,7 +9,7 @@ const App = () => {
 
   const handleCreate = (addplant) => {
     axios
-    .post('http://localhost:800/api/plant', addplant)
+    .post('http://localhost:8000/api/plant', addplant)
     .then((response) => {
       console.log(response)
       getPlant()
@@ -47,13 +47,13 @@ const App = () => {
     <>
       <h1>La plant</h1>
       <Add handleCreate={handleCreate}/>
-      <div class='flower-box'>
+      <div className='flower-box'>
           {
             plant.map((plant) => {
               return (
                 <div key={plant.id}>
                     <h4>{plant.name}</h4>
-                    <h5>{plant.family}</h5>
+                    <h5>{plant.image}</h5>
                     <Edit handleUpdate={handleUpdate} plant={plant} />
                     <button onClick={handleDelete} value={plant.id}>
                       X

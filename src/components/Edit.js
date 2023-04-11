@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 const Edit = (props) => {
-  let emptyPlant = { name: '', age: '' }
+  let emptyPlant = { name: '', image: '' }
   const [plant, setPlant] = useState(emptyPlant)
 
   const handleChange = (event) => {
@@ -13,7 +13,6 @@ const Edit = (props) => {
     props.handleUpdate(plant)
   }
   
-
   return (
     <>
       <details>
@@ -28,11 +27,11 @@ const Edit = (props) => {
           />
           <br />
           <br />
-          <label htmlFor="age">Age: </label>
+          <label htmlFor="image">Image: </label>
           <input
             type="number"
-            name="age"
-            value={plant.family}
+            name="image"
+            value={plant.image}
             onChange={handleChange}
           />
           <input type="submit" />
