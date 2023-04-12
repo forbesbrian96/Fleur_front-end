@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 
 const Edit = (props) => {
-  let emptyPlant = { name: '', image: '' }
-  const [plant, setPlant] = useState(emptyPlant)
+  
+  const [plant, setPlant] = useState({...props.plant});
 
   const handleChange = (event) => {
     setPlant({ ...plant, [event.target.name]: event.target.value })
@@ -29,9 +29,18 @@ const Edit = (props) => {
           <br />
           <label htmlFor="image">Image: </label>
           <input
-            type="number"
+            type="text"
             name="image"
             value={plant.image}
+            onChange={handleChange}
+          />
+          <br />
+          <br />
+          <label htmlFor="notes">Notes: </label>
+          <input
+            type="text"
+            name="notes"
+            value={plant.notes}
             onChange={handleChange}
           />
           <input type="submit" />

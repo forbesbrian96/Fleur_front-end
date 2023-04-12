@@ -54,6 +54,7 @@ const App = () => {
                 <div key={plant.id}>
                     <h4>{plant.name}</h4>
                     <h5>{plant.image}</h5>
+                    <h5>{plant.notes}</h5>
                     <Edit handleUpdate={handleUpdate} plant={plant} />
                     <button onClick={handleDelete} value={plant.id}>
                       X
