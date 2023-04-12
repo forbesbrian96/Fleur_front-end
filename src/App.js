@@ -1,7 +1,9 @@
 import React, {useState, useEffect} from 'react'
+import './App.css'
 import axios from 'axios'
 import Add from './components/Add'
 import Edit from './components/Edit'
+import Header from './components/Header';
 
 const App = () => {
 
@@ -45,13 +47,13 @@ const App = () => {
 
   return (
     <>
-      <h1>La plant</h1>
+      <h1>La Fleur</h1>
       <Add handleCreate={handleCreate}/>
-      <div className='flower-box'>
+      <div>
           {
             plant.map((plant) => {
               return (
-                <div key={plant.id}>
+                <div class='flower-box' key={plant.id}>
                     <h4>{plant.name}</h4>
                     <h5>{plant.image}</h5>
                     <Edit handleUpdate={handleUpdate} plant={plant} />
