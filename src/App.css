@@ -1,4 +1,14 @@
+.page {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+}
+
 .flower-box {
+  display: flex;
+  flex-direction: row;
+}
+.flower {
   background-color: aqua;
   width: 100px;
   height: 100px;

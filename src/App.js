@@ -46,14 +46,14 @@ const App = () => {
   }, [])
 
   return (
-    <>
-      <h1>La Fleur</h1>
+    <div class='page'>
+      <Header/>
       <Add handleCreate={handleCreate}/>
-      <div>
+      <div class='flower-box'>
           {
             plant.map((plant) => {
               return (
-                <div class='flower-box' key={plant.id}>
+                <div class='flower' key={plant.id}>
                     <h4>{plant.name}</h4>
                     <h5>{plant.image}</h5>
                     <Edit handleUpdate={handleUpdate} plant={plant} />
@@ -65,7 +65,7 @@ const App = () => {
             })
           }
       </div>
-    </>
+    </div>
   )
 }
 
