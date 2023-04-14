@@ -18,11 +18,11 @@ const Edit = (props) => {
       <details>
         <summary>Edit Plant</summary>
         <form onSubmit={handleSubmit}>
-          <label htmlFor="name">Name: </label>
+          <label htmlFor="header">Name: </label>
           <input
             type="text"
-            name="name"
-            value={plant.name}
+            name="header"
+            value={plant.header}
             onChange={handleChange}
           />
           <br />
@@ -36,11 +36,11 @@ const Edit = (props) => {
           />
           <br />
           <br />
-          <label htmlFor="notes">Notes: </label>
+          <label htmlFor="text">Notes: </label>
           <input
             type="text"
-            name="notes"
-            value={plant.notes}
+            name="text"
+            value={plant.text}
             onChange={handleChange}
           />
           <input type="submit" />

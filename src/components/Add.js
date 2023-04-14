@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 
-//only need props as a param if we are passing in props to this component (we are going to here).
 const Add = (props) => {
-  let emptyPlant = { name: '', image: '', notes: '' }
+  let emptyPlant = { header: '', image: '', text: '' }
   const [plant, setPlant] = useState(emptyPlant)
 
   const handleChange = (event) => {
@@ -18,29 +17,17 @@ const Add = (props) => {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="name">Name: </label>
-        <input 
-        type="text" 
-        name="name" 
-        value={plant.name} 
-        onChange={handleChange}/>
+        <label htmlFor="header">Name: </label>
+        <input type="text" name="header" value={plant.header} onChange={handleChange} />
         <br />
         <br />
         <label htmlFor="image">Image: </label>
-        <input 
-        type="text" 
-        name="image" 
-        value={plant.image} 
-        onChange={handleChange}/>
+        <input type="text" name="image" value={plant.image} onChange={handleChange} />
         <br />
         <br />
-        <label htmlFor="notes">Notes: </label>
-        <input 
-        type="text" 
-        name="notes" 
-        value={plant.notes} 
-        onChange={handleChange}/>
-        <input type="submit"/>
+        <label htmlFor="text">Notes: </label>
+        <input type="text" name="text" value={plant.text} onChange={handleChange} />
+        <input type="submit" />
       </form>
     </>
   )
