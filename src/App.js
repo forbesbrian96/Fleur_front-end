@@ -1,11 +1,14 @@
 import React, {useState, useEffect} from 'react'
+import { Link, Routes, Route, useParams } from 'react-router-dom'
 import axios from 'axios'
+import Home from './components/Home'
+import Plant from './components/Plant'
 import Add from './components/Add'
-import Edit from './components/Edit'
 
 const App = () => {
 
   let [plant, setPlant] = useState([])
+  const { id } = useParams();
 
   const handleCreate = (addplant) => {
     axios
@@ -45,25 +48,21 @@ const App = () => {
 
   return (
     <>
-      <h1>La plant</h1>
-      <Add handleCreate={handleCreate}/>
-      <div className='flower-box'>
-          {
-            plant.map((plant) => {
-              return (
-                <div key={plant.id}>
-                    <h4>{plant.name}</h4>
-                    <h5>{plant.image}</h5>
-                    <h5>{plant.notes}</h5>
-                    <Edit handleUpdate={handleUpdate} plant={plant} />
-                    <button onClick={handleDelete} value={plant.id}>
-                      X
-                    </button>
-                </div>
-              )
-            })
-          }
-      </div>
+      <nav>
+        <ul>
+          <li><Link to='/api/plants'>Home</Link></li>
+          {/* <li><Link to='/api/plants/plant'>Plant</Link></li> */}
+          <li><Link to='/api/plants/new'>New Plant</Link></li>
+          {/* <li><Link to='/api/plants/plant/:id'>Plant</Link></li> */}
+        </ul>
+      </nav>
+      <Routes>
+        <Route path='/api/plants' element={<Home plant={plant} getPlant={getPlant} handleCreate={handleCreate} />} />
+        <Route path='/api/plants/plant/:id' element={<Plant plant={plant} getPlant={getPlant} handleUpdate={handleUpdate} handleDelete={handleDelete} />} />
+        <Route path='/api/plants/new' element={<Add handleCreate={handleCreate}/>} />
+      </Routes>
+
+     
     </>
   )
 }
