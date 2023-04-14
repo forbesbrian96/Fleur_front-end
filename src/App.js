@@ -2,14 +2,14 @@ import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 import Add from './components/Add'
 import Edit from './components/Edit'
-import CSS from './App.css'
-import '@fortawesome/fontawesome-free/css/all.css';
-
-
+import StarRating from './components/StarRating'
+import './App.css'
+ 
 
 const App = () => {
-
+  
   let [plant, setPlant] = useState([])
+  let [rating, setRating] = useState([])
 
   const handleCreate = (addplant) => {
     axios
@@ -43,18 +43,6 @@ const App = () => {
     })
   }
 
-  const StarRating = ({ rating }) => {
-    const stars = [];
-    for (let i = 0; i < 5; i++) {
-      if (i < rating) {
-        stars.push(<i key={i} className="fas fa-star"></i>);
-      } else {
-        stars.push(<i key={i} className="far fa-star"></i>);
-      }
-    }
-    return <div className="star-rating">{stars}</div>;
-  };
-  
 
   useEffect(() => {
     getPlant()
@@ -71,12 +59,8 @@ const App = () => {
                 <div key={plant.id}>
                     <h4>{plant.header}</h4>
                     <img src={plant.image} alt={plant.name} width="400" height="400"/>
-                    <p>{plant.text}</p>
-                    
-                    <div className='container'>
-                    <StarRating rating={plant.rating} />
-                    </div>
-
+                    <h5>{plant.text}</h5>
+                    <StarRating handleUpdate={handleUpdate} rating={rating.rating}/>
                     <Edit handleUpdate={handleUpdate} plant={plant} />
                     <button onClick={handleDelete} value={plant.id}>
                       X
