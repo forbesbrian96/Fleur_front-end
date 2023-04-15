@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import './App.css'
 import { Link, Routes, Route, useParams } from 'react-router-dom'
 import axios from 'axios'
 import Home from './components/Home'
@@ -51,9 +52,7 @@ const App = () => {
       <nav>
         <ul>
           <li><Link to='/api/plants'>Home</Link></li>
-          {/* <li><Link to='/api/plants/plant'>Plant</Link></li> */}
           <li><Link to='/api/plants/new'>New Plant</Link></li>
-          {/* <li><Link to='/api/plants/plant/:id'>Plant</Link></li> */}
         </ul>
       </nav>
       <Routes>
