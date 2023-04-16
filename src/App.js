@@ -4,7 +4,10 @@ import axios from 'axios'
 import Add from './components/Add'
 import Edit from './components/Edit'
 
-const App = () => {
+// import StarRating from './StarRating';
+
+
+const App = (props) => {
   
   let [plant, setPlant] = useState([])
   let [rating, setRating] = useState([])
@@ -46,6 +49,26 @@ const App = () => {
     getPlant()
   }, [])
 
+  // useEffect(() => {
+  //   fetch(`/api/plants/${props.match.params.id}/`)
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       setPlant(data);
+  //     })
+  //     .catch((error) => {
+  //       console.error(error);
+  //     });
+
+  //   fetch(`/api/plants/${props.match.params.id}/rating/average/`)
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       setRating(data.average_rating);
+  //     })
+  //     .catch((error) => {
+  //       console.error(error);
+  //     });
+  // }, [props.match.params.id]);
+
   return (
     <>
       <h1>La Fleur</h1>
@@ -55,8 +78,10 @@ const App = () => {
             plant.map((plant) => {
               return (
                 <div key={plant.id}>
-                    <h4>{plant.name}</h4>
-                    <h5>{plant.image}</h5>
+                    <h4>{plant.header}</h4>
+                    <img src={plant.image} alt={plant.name} width="400" height="400"/>
+                    <p>{plant.text}</p>
+                    {/* <h4>{rating}</h4> */}
                     <Edit handleUpdate={handleUpdate} plant={plant} />
                     <button onClick={handleDelete} value={plant.id}>
                       X

@@ -1,48 +1,43 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+// import React, { useState, useEffect } from 'react';
+// import axios from 'axios';
 
-const StarRating = (props) => {
+// const StarRating = (props) => {
 
-  const [rating, setRating] = useState([]);
-  const [hover, setHover] = useState();
+//   const [rating, setRating] = useState(0);
 
-  useEffect(() => {
-    axios.get(`/api/plants/${props.plantId}/ratings/`)
-      .then(response => {
-        setRating(response.data);
-      })
-      .catch(error => console.error(error));
-  }, [props.plantId]);
+//   const handleStarClick = (index) => {
+//     setRating(index + 1);
+//   };
+  
+//   const stars = [];
+//   for (let i = 0; i < 5; i++) {
+//     const starClass = i < rating ? "star filled" : "star";
+//     stars.push(
+//       <span
+//         key={i}
+//         className={starClass}
+//         onClick={() => handleStarClick(i)}
+//       ></span>
+//     );
+//   }
 
-  const updateRating = async (newRating) => {
-    try {
-      const response = await axios.put(`/api/plants/${props.plantId}/ratings/${props.rating.id}/`, { rating: newRating });
-      setRating(rating.map((r) => r.id === props.rating.id ? { ...r, rating: newRating } : r));
-      console.log(response.data);
-    } catch (error) {
-      console.error(error);
-    }
-  }
+  
+//   function PlantDetail(props) {
+//     const plant = props.plant;
+//     const rating = plant.average_rating();
+  
+//     return (
+//       <div>
+//         <h1>{plant.header}</h1>
+//         <img src={plant.image} alt="" />
+//         <p>{plant.text}</p>
+//         <StarRating rating={rating} />
+//       </div>
+//     );
+//   }
+  
 
-  return (
-    <div className="star-rating">
-      {[...Array(5)].map((_, index) => {
-        const ratingValue = index + 1;
-        return (
-          <button
-            type="button"
-            key={index}
-            className={ratingValue <= (hover || props.rating.rating) ? "on" : "off"}
-            onClick={() => updateRating(ratingValue)}
-            onMouseEnter={() => setHover(ratingValue)}
-            onMouseLeave={() => setHover(props.rating.rating)}
-          >
-            <span className="star">&#9733;</span>
-          </button>
-        );
-      })}
-    </div>
-  );
-};
 
-export default StarRating;
+
+// }
+// export default StarRating;
