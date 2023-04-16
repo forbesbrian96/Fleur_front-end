@@ -1,10 +1,8 @@
 import React, {useState, useEffect} from 'react'
+import './App.css'
 import axios from 'axios'
 import Add from './components/Add'
 import Edit from './components/Edit'
-import StarRating from './components/StarRating'
-import './App.css'
- 
 
 const App = () => {
   
@@ -50,17 +48,15 @@ const App = () => {
 
   return (
     <>
-      <h1>La plant</h1>
+      <h1>La Fleur</h1>
       <Add handleCreate={handleCreate}/>
-      <div className='flower-box'>
+      <div>
           {
             plant.map((plant) => {
               return (
                 <div key={plant.id}>
-                    <h4>{plant.header}</h4>
-                    <img src={plant.image} alt={plant.name} width="400" height="400"/>
-                    <h5>{plant.text}</h5>
-                    <StarRating handleUpdate={handleUpdate} rating={rating.rating}/>
+                    <h4>{plant.name}</h4>
+                    <h5>{plant.image}</h5>
                     <Edit handleUpdate={handleUpdate} plant={plant} />
                     <button onClick={handleDelete} value={plant.id}>
                       X
