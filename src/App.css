@@ -16,14 +16,12 @@ ul {
   background-color: #31572c;
   color: #132a13;
 }
-
 h1 {
   padding: 0;
   margin-top: 20px;
   margin-bottom: 20px;
   margin-left: 50px;
 }
-
 .flower-box {
   display: flex;
   height: 425px;
@@ -35,7 +33,6 @@ h1 {
   font-family: 'Lora', serif;
   margin-bottom: 10px;
 }
-
 .card {
   display: flex;
   align-items: center;
@@ -44,11 +41,9 @@ h1 {
   box-shadow: 4px 6px 4px #132a13;
   height: 98%;
 }
-
 li {
   list-style: none;
 }
-
 a {
   text-decoration: none;
 }

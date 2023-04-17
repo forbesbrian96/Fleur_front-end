@@ -2,18 +2,15 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Edit from "./Edit";
-
 const Plant = (props) => {
   let [plant, setPlant] = useState([]);
   const { id } = useParams();
-
   const getPlant = () => {
     axios.get("http://localhost:8000/api/plants/" + id).then(
       (response) => setPlant(response.data),
       (err) => console.log(err)
     );
   };
-
   const handleUpdate = (editPlant) => {
     console.log(editPlant)
     axios
@@ -22,7 +19,6 @@ const Plant = (props) => {
         getPlant()
       })
   }
-
   const handleDelete = (event) => {
     axios
       .delete("http://localhost:8000/api/plants/" + event.target.value)
@@ -30,7 +26,6 @@ const Plant = (props) => {
         getPlant();
       });
   };
-
   useEffect(() => {
     getPlant();
   }, []);
@@ -53,5 +48,4 @@ const Plant = (props) => {
     </>
   );
 };
-
 export default Plant;

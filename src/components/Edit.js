@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import axios from 'axios';
 
 const Edit = (props) => {
-  
+
   const [plant, setPlant] = useState({...props.plant});
 
   const getPlant = () => {
@@ -23,12 +23,12 @@ const Edit = (props) => {
   const handleChange = (event) => {
     setPlant({ ...plant, [event.target.name]: event.target.value })
   }
-  
+
   const handleSubmit = (event) => {
     event.preventDefault()
     handleUpdate(plant)
   }
-  
+
   return (
     <>
       <details>
@@ -65,5 +65,4 @@ const Edit = (props) => {
     </>
   )
 }
-
 export default Edit
