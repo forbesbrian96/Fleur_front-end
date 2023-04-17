@@ -37,18 +37,19 @@ const Plant = (props) => {
 
   return (
     <>
-      <div className="flower-box">
+      {/* <div> */}
         <div className="card" key={plant.id}>
           <h4>{plant.header}</h4>
-          <h4>{plant.id}</h4>
           <img src={plant.image} alt={plant.header} width="400" height="400" />
           <h5>{plant.text}</h5>
           <Edit plant={plant} />
+          <br/>
           <button onClick={handleDelete} value={plant.id}>
-            X
+            Remove Plant
           </button>
+          <br/>
         </div>
-      </div>
+      {/* </div> */}
     </>
   );
 };

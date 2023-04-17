@@ -2,6 +2,13 @@ body {
   background-color: #90a955;
 }
 
+ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  color: white;
+}
+
 .header {
   font-family: 'Cardo', serif;
   font-size: 3em;

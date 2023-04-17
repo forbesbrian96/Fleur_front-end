@@ -1,8 +1,24 @@
 import React, { useState } from 'react'
+import axios from 'axios';
 
 const Edit = (props) => {
   
   const [plant, setPlant] = useState({...props.plant});
+
+  const getPlant = () => {
+    axios
+    .get('http://localhost:8000/api/plants')
+    .then((response) => setPlant(response.data), (err) => console.log(err))
+  }
+
+  const handleUpdate = (editPlant) => {
+    console.log(editPlant)
+    axios
+      .put('http://localhost:8000/api/plants/' + editPlant.id, editPlant)
+      .then((response) => {
+        getPlant()
+      })
+  }
 
   const handleChange = (event) => {
     setPlant({ ...plant, [event.target.name]: event.target.value })
@@ -10,7 +26,7 @@ const Edit = (props) => {
   
   const handleSubmit = (event) => {
     event.preventDefault()
-    props.handleUpdate(plant)
+    handleUpdate(plant)
   }
   
   return (
