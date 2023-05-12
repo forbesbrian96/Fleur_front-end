@@ -13,7 +13,7 @@ const App = () => {
 
   const handleCreate = (addplant) => {
     axios
-    .post('https://secure-journey-08415.herokuapp.com/', addplant)
+    .post('https://secure-journey-08415.herokuapp.com', addplant)
     .then((response) => {
       console.log(response)
       getPlant()
@@ -22,14 +22,14 @@ const App = () => {
 
   const getPlant = () => {
     axios
-    .get('https://secure-journey-08415.herokuapp.com/')
+    .get('https://secure-journey-08415.herokuapp.com')
     .then((response) => setPlant(response.data), (err) => console.log(err))
   }
 
   const handleUpdate = (editPlant) => {
     console.log(editPlant)
     axios
-      .put('https://secure-journey-08415.herokuapp.com//' + editPlant.id, editPlant)
+      .put('https://secure-journey-08415.herokuapp.com/' + editPlant.id, editPlant)
       .then((response) => {
         getPlant()
       })
@@ -37,7 +37,7 @@ const App = () => {
 
   const handleDelete = (event) => {
     axios
-    .delete('https://secure-journey-08415.herokuapp.com//' + event.target.value)
+    .delete('https://secure-journey-08415.herokuapp.com/' + event.target.value)
     .then((response) => {
       getPlant()
     })
