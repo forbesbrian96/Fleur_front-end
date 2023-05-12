@@ -6,7 +6,7 @@ const Plant = (props) => {
   let [plant, setPlant] = useState([]);
   const { id } = useParams();
   const getPlant = () => {
-    axios.get("http://localhost:8000/api/plants/" + id).then(
+    axios.get("https://secure-journey-08415.herokuapp.com/api/plants/" + id).then(
       (response) => setPlant(response.data),
       (err) => console.log(err)
     );
@@ -14,14 +14,14 @@ const Plant = (props) => {
   const handleUpdate = (editPlant) => {
     console.log(editPlant)
     axios
-      .put('http://localhost:8000/api/plants/' + editPlant.id, editPlant)
+      .put('https://secure-journey-08415.herokuapp.com/api/plants/' + editPlant.id, editPlant)
       .then((response) => {
         getPlant()
       })
   }
   const handleDelete = (event) => {
     axios
-      .delete("http://localhost:8000/api/plants/" + event.target.value)
+      .delete("https://secure-journey-08415.herokuapp.com/api/plants/" + event.target.value)
       .then((response) => {
         getPlant();
       });

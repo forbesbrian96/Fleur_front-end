@@ -7,14 +7,14 @@ const Edit = (props) => {
 
   const getPlant = () => {
     axios
-    .get('http://localhost:8000/api/plants')
+    .get('https://secure-journey-08415.herokuapp.com/api/plants')
     .then((response) => setPlant(response.data), (err) => console.log(err))
   }
 
   const handleUpdate = (editPlant) => {
     console.log(editPlant)
     axios
-      .put('http://localhost:8000/api/plants/' + editPlant.id, editPlant)
+      .put('https://secure-journey-08415.herokuapp.com/api/plants/' + editPlant.id, editPlant)
       .then((response) => {
         getPlant()
       })
